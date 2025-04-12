@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  viridisca.api:
+    image: ${DOCKER_REGISTRY-}viridiscaapi
+    container_name: Viridisca.Api
+    build:
+      context: .
+      dockerfile: src/API/Viridisca.Api/Dockerfile
+    ports:
+      - 5000:8080
+      - 5001:8081
+
+  # viridisca.database:
+  #   image: postgres:latest
+  #   container_name: Viridisca.Database
+  #   environment:
+  #     - POSTGRES_DB=viridisca
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #   volumes:
+  #     - ./.containers/db:/var/lib/postgresql/data
+  #   ports:
+  #     - 5432:5432
+
+  # viridisca.seq:
+  #   image: datalust/seq:latest
+  #   container_name: Viridisca.Seq
+  #   environment:
+  #     - ACCEPT_EULA=Y
+  #   ports:
+  #     - 5341:5341
+  #     - 8081:80

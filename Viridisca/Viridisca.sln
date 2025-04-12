@@ -6,10 +6,80 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A39890D-FF75-49A6-AEB8-047A8D8A4996}"
+	ProjectSection(SolutionItems) = preProject
+		tests\test.txt = tests\test.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Api", "src\API\Viridisca.Api\Viridisca.Api.csproj", "{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{762665ED-3A66-4546-AC19-C16D8B1852A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{17202BA9-3ABE-4C4C-87C8-D212BF962728}"
+	ProjectSection(SolutionItems) = preProject
+		src\Modules\Module.txt = src\Modules\Module.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{75E1D020-07AE-41FF-9CB1-418FAB9FDF87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Application", "src\Common\Viridisca.Common.Application\Viridisca.Common.Application.csproj", "{546B83D8-DBF4-4887-A0C6-D702A9F7904F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Domain", "src\Common\Viridisca.Common.Domain\Viridisca.Common.Domain.csproj", "{7B007288-48FF-4D6B-AD5F-A424E42E25D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Common.Infrastructure", "src\Common\Lambda.Common.Infrastructure\Lambda.Common.Infrastructure.csproj", "{5EE0681C-956E-4564-A367-57FA2B491099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Common.Presentation", "src\Common\Lambda.Common.Presentation\Lambda.Common.Presentation.csproj", "{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig.txt = .editorconfig.txt
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{546B83D8-DBF4-4887-A0C6-D702A9F7904F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{546B83D8-DBF4-4887-A0C6-D702A9F7904F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{546B83D8-DBF4-4887-A0C6-D702A9F7904F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{546B83D8-DBF4-4887-A0C6-D702A9F7904F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B007288-48FF-4D6B-AD5F-A424E42E25D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B007288-48FF-4D6B-AD5F-A424E42E25D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B007288-48FF-4D6B-AD5F-A424E42E25D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B007288-48FF-4D6B-AD5F-A424E42E25D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EE0681C-956E-4564-A367-57FA2B491099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE0681C-956E-4564-A367-57FA2B491099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE0681C-956E-4564-A367-57FA2B491099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE0681C-956E-4564-A367-57FA2B491099}.Release|Any CPU.Build.0 = Release|Any CPU
+		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0} = {762665ED-3A66-4546-AC19-C16D8B1852A6}
+		{762665ED-3A66-4546-AC19-C16D8B1852A6} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{17202BA9-3ABE-4C4C-87C8-D212BF962728} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{75E1D020-07AE-41FF-9CB1-418FAB9FDF87} = {36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}
+		{546B83D8-DBF4-4887-A0C6-D702A9F7904F} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
+		{7B007288-48FF-4D6B-AD5F-A424E42E25D5} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
+		{5EE0681C-956E-4564-A367-57FA2B491099} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
+		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E24B4043-FBA7-42EA-AC64-810961F1044F}
