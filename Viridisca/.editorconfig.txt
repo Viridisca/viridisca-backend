@@ -66,7 +66,7 @@ csharp_style_expression_bodied_operators = true:error
 csharp_style_expression_bodied_properties = true:error
 csharp_style_expression_bodied_indexers = true:error
 csharp_style_expression_bodied_accessors = true:error
-csharp_style_expression_bodied_lambdas = true:error
+csharp_style_expression_bodied_Viridiscas = true:error
 csharp_style_expression_bodied_local_functions = true:error
 csharp_space_around_binary_operators = before_and_after
 csharp_style_throw_expression = true:suggestion
@@ -118,7 +118,7 @@ csharp_style_var_when_type_is_apparent = true:error
 csharp_style_expression_bodied_accessors = true:error
 csharp_style_expression_bodied_constructors = false:silent
 csharp_style_expression_bodied_indexers = true:error
-csharp_style_expression_bodied_lambdas = true:none
+csharp_style_expression_bodied_Viridiscas = true:none
 csharp_style_expression_bodied_local_functions = true:error
 csharp_style_expression_bodied_methods = false:silent
 csharp_style_expression_bodied_operators = true:error
@@ -371,7 +371,7 @@ dotnet_diagnostic.CS8618.severity = none
 # IDE0046: Convert to conditional expression
 dotnet_diagnostic.IDE0046.severity = none
 
-# IDE0053: Use expression body for lambda expression
+# IDE0053: Use expression body for Viridisca expression
 dotnet_diagnostic.IDE0053.severity = none
 
 # IDE0270: Use coalesce expression

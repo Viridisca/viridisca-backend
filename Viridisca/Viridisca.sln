@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35919.96 d17.13
+VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
@@ -15,9 +15,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{762665ED-3A66-4546-AC19-C16D8B1852A6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{17202BA9-3ABE-4C4C-87C8-D212BF962728}"
-	ProjectSection(SolutionItems) = preProject
-		src\Modules\Module.txt = src\Modules\Module.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{75E1D020-07AE-41FF-9CB1-418FAB9FDF87}"
 EndProject
@@ -25,9 +22,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Domain", "src\Common\Viridisca.Common.Domain\Viridisca.Common.Domain.csproj", "{7B007288-48FF-4D6B-AD5F-A424E42E25D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Common.Infrastructure", "src\Common\Lambda.Common.Infrastructure\Lambda.Common.Infrastructure.csproj", "{5EE0681C-956E-4564-A367-57FA2B491099}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Infrastructure", "src\Common\Lambda.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj", "{5EE0681C-956E-4564-A367-57FA2B491099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lambda.Common.Presentation", "src\Common\Lambda.Common.Presentation\Lambda.Common.Presentation.csproj", "{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Common.Presentation", "src\Common\Lambda.Common.Presentation\Viridisca.Common.Presentation.csproj", "{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{754FC069-D67B-A9D7-50A1-8D1CA196D8F1}"
 	ProjectSection(SolutionItems) = preProject
@@ -36,6 +33,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{B66DA2E0-E1DA-4399-8F30-C8FD157055C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Education", "Education", "{8D5DFFB8-9D01-44E1-ADA7-392B015C9138}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lessons", "Lessons", "{0EA543AE-3C53-4B81-B520-FB6D27A37AB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Groups", "Groups", "{91379563-65B7-49A3-8ED9-262F34D04943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Lessons.Application", "src\Modules\Lessons\Viridisca.Modules.Lessons.Application\Viridisca.Modules.Lessons.Application.csproj", "{C62F67CA-75FF-534D-2FB9-22CA444698E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Lessons.Domain", "src\Modules\Lessons\Viridisca.Modules.Lessons.Domain\Viridisca.Modules.Lessons.Domain.csproj", "{844E6C8E-05C2-D9E7-C349-6D40FBCC7684}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Lessons.Infrastructure", "src\Modules\Lessons\Viridisca.Modules.Lessons.Infrastructure\Viridisca.Modules.Lessons.Infrastructure.csproj", "{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Lessons.Presentation", "src\Modules\Lessons\Viridisca.Modules.Lessons.Presentation\Viridisca.Modules.Lessons.Presentation.csproj", "{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +80,22 @@ Global
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62F67CA-75FF-534D-2FB9-22CA444698E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62F67CA-75FF-534D-2FB9-22CA444698E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62F67CA-75FF-534D-2FB9-22CA444698E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62F67CA-75FF-534D-2FB9-22CA444698E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844E6C8E-05C2-D9E7-C349-6D40FBCC7684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844E6C8E-05C2-D9E7-C349-6D40FBCC7684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844E6C8E-05C2-D9E7-C349-6D40FBCC7684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844E6C8E-05C2-D9E7-C349-6D40FBCC7684}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +109,14 @@ Global
 		{7B007288-48FF-4D6B-AD5F-A424E42E25D5} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
 		{5EE0681C-956E-4564-A367-57FA2B491099} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
 		{222C0215-1958-4ABF-BF2A-6C7E1EAFD3FA} = {75E1D020-07AE-41FF-9CB1-418FAB9FDF87}
+		{B66DA2E0-E1DA-4399-8F30-C8FD157055C1} = {17202BA9-3ABE-4C4C-87C8-D212BF962728}
+		{8D5DFFB8-9D01-44E1-ADA7-392B015C9138} = {17202BA9-3ABE-4C4C-87C8-D212BF962728}
+		{0EA543AE-3C53-4B81-B520-FB6D27A37AB8} = {17202BA9-3ABE-4C4C-87C8-D212BF962728}
+		{91379563-65B7-49A3-8ED9-262F34D04943} = {17202BA9-3ABE-4C4C-87C8-D212BF962728}
+		{C62F67CA-75FF-534D-2FB9-22CA444698E0} = {0EA543AE-3C53-4B81-B520-FB6D27A37AB8}
+		{844E6C8E-05C2-D9E7-C349-6D40FBCC7684} = {0EA543AE-3C53-4B81-B520-FB6D27A37AB8}
+		{3AACC3D5-6CA1-324B-2F8B-CE8EEDC81A83} = {0EA543AE-3C53-4B81-B520-FB6D27A37AB8}
+		{609C8B5C-ABC4-8024-239A-CE8E34ADE4EA} = {0EA543AE-3C53-4B81-B520-FB6D27A37AB8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E24B4043-FBA7-42EA-AC64-810961F1044F}
