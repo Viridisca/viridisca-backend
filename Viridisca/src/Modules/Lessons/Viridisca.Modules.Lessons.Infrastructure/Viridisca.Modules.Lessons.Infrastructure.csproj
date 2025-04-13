@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Common\Lambda.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj" />
-    <ProjectReference Include="..\Viridisca.Modules.Lessons.Application\Viridisca.Modules.Lessons.Application.csproj" />
-    <ProjectReference Include="..\Viridisca.Modules.Lessons.Presentation\Viridisca.Modules.Lessons.Presentation.csproj" /> 
-  </ItemGroup>
-</Project>

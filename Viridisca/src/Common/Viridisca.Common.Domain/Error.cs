@@ -21,6 +21,8 @@ public record Error
 
     public ErrorType Type { get; }
 
+    public string Message => Description;
+
     public static Error Failure(string code, string description) =>
         new(code, description, ErrorType.Failure);
 

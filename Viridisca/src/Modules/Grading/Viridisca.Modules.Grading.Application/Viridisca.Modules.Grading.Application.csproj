@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Viridisca.Common.Application\Viridisca.Common.Application.csproj" />
+    <ProjectReference Include="..\Viridisca.Modules.Grading.Domain\Viridisca.Modules.Grading.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

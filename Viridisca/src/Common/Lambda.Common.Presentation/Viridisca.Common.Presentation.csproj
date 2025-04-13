@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.34" />
-	</ItemGroup>
-
-</Project>

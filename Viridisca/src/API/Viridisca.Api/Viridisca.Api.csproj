@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Common\Lambda.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj" />
+	  <ProjectReference Include="..\..\Common\Viridisca.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
