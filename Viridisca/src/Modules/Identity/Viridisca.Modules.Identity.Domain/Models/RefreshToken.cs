@@ -1,52 +1,135 @@
 using System;
 using Viridisca.Common.Domain;
 
-namespace Viridisca.Modules.Identity.Domain.Models
+namespace Viridisca.Modules.Identity.Domain.Models;
+
+/// <summary>
+/// Represents a refresh token used for authentication
+/// </summary>
+public class RefreshToken : Entity
 {
-    public class RefreshToken : Entity
+    /// <summary>
+    /// Gets or sets the unique identifier for the refresh token
+    /// </summary>
+    public Guid Uid { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the token string
+    /// </summary>
+    public string Token { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the user ID associated with this token
+    /// </summary>
+    public Guid UserUid { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the expiry date of the token
+    /// </summary>
+    public DateTime ExpiryDate { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the creation date of the token
+    /// </summary>
+    public DateTime CreatedDate { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the revocation date of the token
+    /// </summary>
+    public DateTime? RevokedAtUtc { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the IP address that revoked the token
+    /// </summary>
+    public string RevokedByIp { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the token that replaced this token
+    /// </summary>
+    public string ReplacedByToken { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the reason the token was revoked
+    /// </summary>
+    public string ReasonRevoked { get; private set; }
+
+    /// <summary>
+    /// Gets or sets the user associated with this token
+    /// </summary>
+    public virtual User User { get; private set; }
+
+    /// <summary>
+    /// Gets whether the token is expired
+    /// </summary>
+    public bool IsExpired => DateTime.UtcNow >= ExpiryDate;
+
+    /// <summary>
+    /// Gets whether the token is revoked
+    /// </summary>
+    public bool IsRevoked => RevokedAtUtc != null;
+
+    /// <summary>
+    /// Gets whether the token is active
+    /// </summary>
+    public bool IsActive => !IsRevoked && !IsExpired;
+
+    /// <summary>
+    /// Protected constructor for EF Core
+    /// </summary>
+    protected RefreshToken()
     {
-        public Guid Uid { get; private set; }
-        public Guid UserUid { get; private set; }
-        public User User { get; private set; }
-        public string Token { get; private set; }
-        public DateTime IssuedAtUtc { get; private set; }
-        public DateTime ExpiresAtUtc { get; private set; }
-        public string CreatedByIp { get; private set; }
-        public DateTime? RevokedAtUtc { get; private set; }
-        public string RevokedByIp { get; private set; }
-        public string ReplacedByToken { get; private set; }
-        public string ReasonRevoked { get; private set; }
-        public DateTime CreatedAtUtc { get; private set; }
-
-        private RefreshToken() { }
-
-        public static Result<RefreshToken> Create(Guid userUid, TimeSpan tokenLifetime, string token = null)
-        {
-            if (userUid == Guid.Empty)
-                return Result.Failure<RefreshToken>(new Error("UserUid.Empty", "Идентификатор пользователя не может быть пустым", ErrorType.Validation));
-            
-            return Result.Success(new RefreshToken
-            {
-                Uid = Guid.NewGuid(),
-                UserUid = userUid,
-                Token = token ?? Guid.NewGuid().ToString(),
-                CreatedAtUtc = DateTime.UtcNow,
-                IssuedAtUtc = DateTime.UtcNow,
-                ExpiresAtUtc = DateTime.UtcNow.Add(tokenLifetime),
-                RevokedAtUtc = null
-            });
-        }
-
-        public bool IsExpired => DateTime.UtcNow >= ExpiresAtUtc;
-        public bool IsRevoked => RevokedAtUtc != null;
-        public bool IsActive => !IsRevoked && !IsExpired;
-
-        public void Revoke(DateTime utcNow, string ipAddress, string reason = null, string replacementToken = null)
-        {
-            RevokedAtUtc = utcNow;
-            RevokedByIp = ipAddress;
-            ReasonRevoked = reason;
-            ReplacedByToken = replacementToken;
-        }
     }
-} 
+
+    /// <summary>
+    /// Private constructor for factory method
+    /// </summary>
+    private RefreshToken(Guid uid, string token, Guid userId, DateTime expiryDate)
+    {
+        Uid = uid;
+        Token = token;
+        UserUid = userId;
+        ExpiryDate = expiryDate;
+        CreatedDate = DateTime.UtcNow;
+    }
+
+    /// <summary>
+    /// Creates a new refresh token
+    /// </summary>
+    public static Result<RefreshToken> Create(string token, Guid userId, DateTime expiryDate)
+    {
+        if (string.IsNullOrWhiteSpace(token))
+        {
+            return Result.Failure<RefreshToken>(Error.Failure("RefreshToken.InvalidToken", "Token cannot be empty"));
+        }
+
+        if (userId == Guid.Empty)
+        {
+            return Result.Failure<RefreshToken>(Error.Failure("RefreshToken.InvalidUserId", "User ID cannot be empty"));
+        }
+
+        if (expiryDate <= DateTime.UtcNow)
+        {
+            return Result.Failure<RefreshToken>(Error.Failure("RefreshToken.InvalidExpiryDate", "Expiry date must be in the future"));
+        }
+
+        return Result.Success(new RefreshToken(Guid.NewGuid(), token, userId, expiryDate));
+    }
+
+    /// <summary>
+    /// Revokes the refresh token
+    /// </summary>
+    public Result Revoke(string reason = null, string revokedByIp = null, string replacedByToken = null)
+    {
+        if (IsRevoked)
+        {
+            return Result.Failure(Error.Failure("RefreshToken.AlreadyRevoked", "Token is already revoked"));
+        }
+
+        RevokedAtUtc = DateTime.UtcNow;
+        ReasonRevoked = reason;
+        RevokedByIp = revokedByIp;
+        ReplacedByToken = replacedByToken;
+
+        return Result.Success();
+    }
+}

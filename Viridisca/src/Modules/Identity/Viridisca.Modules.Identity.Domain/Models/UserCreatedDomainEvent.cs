@@ -1,15 +1,9 @@
 using System;
 using Viridisca.Common.Domain;
 
-namespace Viridisca.Modules.Identity.Domain.Models
-{
-    public class UserCreatedDomainEvent : DomainEvent
-    {
-        public Guid UserUid { get; }
+namespace Viridisca.Modules.Identity.Domain.Models;
 
-        public UserCreatedDomainEvent(Guid userUid)
-        {
-            UserUid = userUid;
-        }
-    }
-} 
+public class UserCreatedDomainEvent(Guid userUid) : DomainEvent
+{
+    public Guid UserUid { get; } = userUid;
+}

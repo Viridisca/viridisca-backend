@@ -5,25 +5,30 @@
 		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
 		<DockerfileContext>..\..\..</DockerfileContext>
 		<DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
+		<DockerComposeProjectName>Viridisca</DockerComposeProjectName>
 	</PropertyGroup>
 
 	<ItemGroup>
 
 		<PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.13" />
 		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.13" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="7.5.0" />
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 		<PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.0" />
 
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Common\Viridisca.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj" />
+	  <ProjectReference Include="..\..\Modules\Academic\Viridisca.Modules.Academic.Infrastructure\Viridisca.Modules.Academic.Infrastructure.csproj" />
+	  <ProjectReference Include="..\..\Modules\Identity\Viridisca.Modules.Identity.Infrastructure\Viridisca.Modules.Identity.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>

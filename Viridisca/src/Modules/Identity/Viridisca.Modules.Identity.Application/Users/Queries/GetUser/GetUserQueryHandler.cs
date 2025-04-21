@@ -1,63 +1,51 @@
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using MediatR;
 using Viridisca.Modules.Identity.Application.Users.Queries.GetUser.Dto;
 using Viridisca.Modules.Identity.Domain.Models;
+using Viridisca.Modules.Identity.Domain.Repositories;
 
-namespace Viridisca.Modules.Identity.Application.Users.Queries.GetUser
+namespace Viridisca.Modules.Identity.Application.Users.Queries.GetUser;
+
+internal sealed class GetUserQueryHandler(IUserRepository userRepository) : IRequestHandler<GetUserQuery, UserDto>
 {
-    internal sealed class GetUserQueryHandler : IRequestHandler<GetUserQuery, UserDto>
+    private readonly IUserRepository _userRepository = userRepository;
+
+    public async Task<UserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
     {
-        private readonly IUserRepository _userRepository;
+        var user = await _userRepository.GetByUidAsync(request.UserUid, cancellationToken);
 
-        public GetUserQueryHandler(IUserRepository userRepository)
+        return user == null
+            ? throw new Exception($"Пользователь с ID {request.UserUid} не найден")
+            : new UserDto
         {
-            _userRepository = userRepository;
-        }
-
-        public async Task<UserDto> Handle(GetUserQuery request, CancellationToken cancellationToken)
-        {
-            var user = await _userRepository.GetByUidAsync(request.UserUid, cancellationToken);
-
-            if (user == null)
+            Uid = user.Uid,
+            Email = user.Email,
+            Username = user.Username,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
+            MiddleName = user.MiddleName,
+            PhoneNumber = user.PhoneNumber,
+            ProfileImageUrl = user.ProfileImageUrl,
+            DateOfBirth = user.DateOfBirth,
+            IsActive = user.IsActive,
+            IsEmailConfirmed = user.IsEmailConfirmed,
+            CreatedAtUtc = user.CreatedAtUtc,
+            LastLoginAtUtc = user.LastLoginAtUtc,
+            Roles = user.UserRoles.Select(r => new UserRoleDto
             {
-                throw new Exception($"Пользователь с ID {request.UserUid} не найден");
-            }
-
-            return new UserDto
-            {
-                Uid = user.Uid,
-                Email = user.Email,
-                Username = user.Username,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
-                MiddleName = user.MiddleName,
-                PhoneNumber = user.PhoneNumber,
-                ProfileImageUrl = user.ProfileImageUrl,
-                DateOfBirth = user.DateOfBirth,
-                IsActive = user.IsActive,
-                IsEmailConfirmed = user.IsEmailConfirmed,
-                CreatedAtUtc = user.CreatedAtUtc,
-                LastLoginAtUtc = user.LastLoginAtUtc,
-                Roles = user.UserRoles.Select(r => new UserRoleDto
-                {
-                    Uid = r.Uid,
-                    Role = r.Role,
-                    RoleName = GetRoleDisplayName(r.Role),
-                    AssignedAtUtc = r.AssignedAtUtc,
-                    IsActive = r.IsActive,
-                    ScopeUid = r.ScopeUid,
-                    ExpiresAtUtc = r.ExpiresAtUtc
-                }).ToList()
-            };
-        }
-
-        private string GetRoleDisplayName(RoleType role)
-        {
-            // В реальном проекте лучше использовать Reflection для получения значения Description атрибута
-            return role.ToString();
-        }
+                Uid = r.Uid,
+                //Role = r.Role,
+                //RoleName = GetRoleDisplayName(r.Role),
+                AssignedAtUtc = r.AssignedAtUtc,
+                IsActive = r.IsActive,
+                ScopeUid = r.ScopeUid,
+                ExpiresAtUtc = r.ExpiresAtUtc
+            }).ToList()
+        };
     }
-} 
+
+    private string GetRoleDisplayName(RoleType role)
+    {
+        // В реальном проекте лучше использовать Reflection для получения значения Description атрибута
+        return role.ToString();
+    }
+}

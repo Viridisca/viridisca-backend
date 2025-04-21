@@ -5,8 +5,6 @@ VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{36D591C7-65C7-A0D1-1CBC-10CDE441BDC8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1A39890D-FF75-49A6-AEB8-047A8D8A4996}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Api", "src\API\Viridisca.Api\Viridisca.Api.csproj", "{9FBFF5B5-5600-4A25-9BA8-AB4FCFB9F9A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{762665ED-3A66-4546-AC19-C16D8B1852A6}"
@@ -130,12 +128,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Scheduler.Infrastructure", "src\Modules\Scheduler\Viridisca.Modules.Scheduler.Infrastructure\Viridisca.Modules.Scheduler.Infrastructure.csproj", "{A4CE2380-002F-45E9-8781-8F3DB9F501F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Modules.Scheduler.Presentation", "src\Modules\Scheduler\Viridisca.Modules.Scheduler.Presentation\Viridisca.Modules.Scheduler.Presentation.csproj", "{A5FD8466-F640-464D-8686-466F1E27E793}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{795C77A2-A412-4A14-9F38-739D5A307DAA}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Grading", "Grading", "{39E78643-A6F6-4EAE-B4D0-B07419352941}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viridisca.Tests.Modules.Grading", "tests\Modules\Grading\Viridisca.Tests.Modules.Grading.csproj", "{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -695,18 +687,6 @@ Global
 		{A5FD8466-F640-464D-8686-466F1E27E793}.Release|x64.Build.0 = Release|Any CPU
 		{A5FD8466-F640-464D-8686-466F1E27E793}.Release|x86.ActiveCfg = Release|Any CPU
 		{A5FD8466-F640-464D-8686-466F1E27E793}.Release|x86.Build.0 = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|x64.Build.0 = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Debug|x86.Build.0 = Debug|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|x64.ActiveCfg = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|x64.Build.0 = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|x86.ActiveCfg = Release|Any CPU
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -770,9 +750,6 @@ Global
 		{8F36DCCD-EE78-4196-ADE2-F0460D7F9426} = {2AC32C92-38B5-4078-909D-2C8C9FCCF0A8}
 		{A4CE2380-002F-45E9-8781-8F3DB9F501F3} = {2AC32C92-38B5-4078-909D-2C8C9FCCF0A8}
 		{A5FD8466-F640-464D-8686-466F1E27E793} = {2AC32C92-38B5-4078-909D-2C8C9FCCF0A8}
-		{795C77A2-A412-4A14-9F38-739D5A307DAA} = {1A39890D-FF75-49A6-AEB8-047A8D8A4996}
-		{39E78643-A6F6-4EAE-B4D0-B07419352941} = {795C77A2-A412-4A14-9F38-739D5A307DAA}
-		{D6D06EDA-ACA3-3EC9-4BF3-2FF40E7CA05D} = {39E78643-A6F6-4EAE-B4D0-B07419352941}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E24B4043-FBA7-42EA-AC64-810961F1044F}

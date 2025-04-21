@@ -5,7 +5,7 @@ namespace Viridisca.Common.Domain;
 /// </summary>
 public static class MetadataEntityExtensions
 {
-    private static readonly Dictionary<Entity, Dictionary<string, object>> _metadata = new();
+    private static readonly Dictionary<Entity, Dictionary<string, object>> _metadata = [];
     
     /// <summary>
     /// Sets metadata value for the entity

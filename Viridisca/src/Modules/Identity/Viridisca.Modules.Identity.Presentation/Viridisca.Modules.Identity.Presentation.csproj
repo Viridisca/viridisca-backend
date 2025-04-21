@@ -1,14 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
-  </ItemGroup>
-
+ 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Viridisca.Common.Presentation\Viridisca.Common.Presentation.csproj" />
     <ProjectReference Include="..\Viridisca.Modules.Identity.Application\Viridisca.Modules.Identity.Application.csproj" />
+    <ProjectReference Include="..\Viridisca.Modules.Identity.Domain\Viridisca.Modules.Identity.Domain.csproj" />
   </ItemGroup>
 
 </Project>

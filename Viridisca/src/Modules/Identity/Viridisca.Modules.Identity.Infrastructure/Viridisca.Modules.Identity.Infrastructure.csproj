@@ -7,11 +7,16 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.4" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
     <PackageReference Include="EFCore.NamingConventions" Version="9.0.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Viridisca.Common.Infrastructure\Viridisca.Common.Infrastructure.csproj" />
     <ProjectReference Include="..\Viridisca.Modules.Identity.Application\Viridisca.Modules.Identity.Application.csproj" />
+    <ProjectReference Include="..\Viridisca.Modules.Identity.Domain\Viridisca.Modules.Identity.Domain.csproj" />
   </ItemGroup>
 
 </Project>

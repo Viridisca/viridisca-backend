@@ -13,8 +13,11 @@ public static class ApplicationConfiguration
         services.AddMediatR(config =>
         {
             config.RegisterServicesFromAssemblies(moduleAssemblies);
-        });
 
+            // AddBehavior
+            // config.AddOpenBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>)); 
+        }); 
+         
         services.AddValidatorsFromAssemblies(moduleAssemblies, includeInternalTypes: true);
 
         return services;

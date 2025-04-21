@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Viridisca.Common.Application\Viridisca.Common.Application.csproj" />
-    <ProjectReference Include="..\Viridisca.Modules.Identity.Domain\Viridisca.Modules.Identity.Domain.csproj" />
+    <ProjectReference Include="..\Viridisca.Modules.Identity.Domain\Viridisca.Modules.Identity.Domain.csproj" /> 
   </ItemGroup>
 
 </Project>

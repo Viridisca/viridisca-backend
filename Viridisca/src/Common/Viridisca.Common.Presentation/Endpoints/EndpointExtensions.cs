@@ -5,26 +5,37 @@ using Microsoft.AspNetCore.Routing;
 using System.Reflection;
 
 namespace Viridisca.Common.Presentation.Endpoints;
-
+ 
+/// <summary>
+/// Extension methods for endpoint registration
+/// </summary>
 public static class EndpointExtensions
 {
+    /// <summary>
+    /// Adds endpoints from the specified assembly to the service collection
+    /// </summary>
+    /// <param name="services">The service collection</param>
+    /// <param name="assemblies">The assemblies containing endpoint definitions</param>
+    /// <returns>The service collection for chaining</returns>
     public static IServiceCollection AddEndpoints(this IServiceCollection services, params Assembly[] assemblies)
     {
-        ServiceDescriptor[] serviceDescriptors = assemblies
+        ServiceDescriptor[] serviceDescriptors = [.. assemblies
             .SelectMany(a => a.GetTypes())
-            .Where(type => type is { IsAbstract: false, IsInterface: false } &&
-                           type.IsAssignableTo(typeof(IEndpoint)))
-            .Select(type => ServiceDescriptor.Transient(typeof(IEndpoint), type))
-            .ToArray();
+            .Where(type => typeof(IEndpoint)
+                .IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+            .Select(type => ServiceDescriptor.Transient(typeof(IEndpoint), type))];
 
         services.TryAddEnumerable(serviceDescriptors);
 
         return services;
     }
 
-    public static IApplicationBuilder MapEndpoints(
-        this WebApplication app,
-        RouteGroupBuilder? routeGroupBuilder = null)
+    /// <summary>
+    /// Maps all registered endpoints to the endpoint route builder
+    /// </summary>
+    /// <param name="app">The application builder</param>
+    /// <returns>The application builder for chaining</returns>
+    public static WebApplication MapEndpoints(this WebApplication app, RouteGroupBuilder? routeGroupBuilder = null)
     {
         IEnumerable<IEndpoint> endpoints = app.Services.GetRequiredService<IEnumerable<IEndpoint>>();
 
@@ -37,4 +48,4 @@ public static class EndpointExtensions
 
         return app;
     }
-}
+} 

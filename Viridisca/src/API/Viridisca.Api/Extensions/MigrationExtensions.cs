@@ -1,5 +1,5 @@
-﻿// using Viridisca.Modules.Lessons.Infrastructure.Database;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Viridisca.Modules.Identity.Infrastructure.Database;
 
 namespace Viridisca.Api.Extensions;
 
@@ -9,7 +9,7 @@ internal static class MigrationExtensions
     {
         using IServiceScope scope = app.ApplicationServices.CreateScope();
 
-       // ApplyMigration<LessonsDbContext>(scope);
+        ApplyMigration<IdentityDbContext>(scope);
     }
 
     private static void ApplyMigration<TDbContext>(IServiceScope scope) where TDbContext : DbContext

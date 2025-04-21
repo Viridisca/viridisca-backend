@@ -1,8 +1,7 @@
-namespace Viridisca.Modules.Identity.Application.Common.Interfaces
+namespace Viridisca.Modules.Identity.Application.Common.Interfaces;
+
+public interface IPasswordHasher
 {
-    public interface IPasswordHasher
-    {
-        string HashPassword(string password);
-        bool VerifyPassword(string password, string passwordHash);
-    }
-} 
+    string HashPassword(string password);
+    bool VerifyPassword(string password, string passwordHash);
+}

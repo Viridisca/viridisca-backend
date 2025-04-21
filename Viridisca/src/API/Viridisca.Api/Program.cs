@@ -1,5 +1,4 @@
-// using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-// using Viridisca.Modules.Lessons.Infrastructure;
+using Viridisca.Modules.Identity.Infrastructure;
 using Viridisca.Common.Presentation.Endpoints;
 using Viridisca.Common.Infrastructure;
 // using HealthChecks.UI.Client;
@@ -17,16 +16,22 @@ IConfiguration configuration = builder.Configuration;
 builder.Host.UseSerilog((context, loggerConfig) => loggerConfig.ReadFrom.Configuration(context.Configuration));
 
 // services.AddExceptionHandler<GlobalExceptionHandler>();
-// services.AddProblemDetails();
+services.AddProblemDetails();
 
 services.AddEndpointsApiExplorer();
 services.AddSwaggerDocumentation();
 
-//Assembly[] moduleApplicationAssemblies = [
-//    Viridisca.Modules.Lessons.Application.AssemblyReference.Assembly,
-//];
+services.AddAuthentication(configuration);
 
-//services.AddApplication(moduleApplicationAssemblies);
+services.AddAuthorizationBuilder();
+services.AddAuthorizationWithPolicies();
+
+Assembly[] moduleApplicationAssemblies = [
+    Viridisca.Modules.Identity.Application.AssemblyReference.Assembly,
+    Viridisca.Modules.Academic.Application.AssemblyReference.Assembly,
+];
+
+services.AddApplication(moduleApplicationAssemblies);
 
 string databaseConnectionString = configuration.GetConnectionStringOrThrow("Database");
 // string redisConnectionString = configuration.GetConnectionStringOrThrow("Cache");
@@ -49,11 +54,9 @@ services.AddInfrastructure(
 // .AddRedis(redisConnectionString)
 // .AddKeyCloak(keyCloakHealthUrl);
 
+builder.Configuration.AddModuleConfiguration(["identity",]);
 
-// builder.Configuration.AddModuleConfiguration(["lessons",]);
-
-// services.AddLessonsModule(configuration);
-// services.AddUsersModule(configuration);  
+services.AddIdentityModule(configuration);
 
 WebApplication app = builder.Build();
 
@@ -71,14 +74,14 @@ if (app.Environment.IsDevelopment())
 // });
 
 app.UseLogContext();
-
 app.UseSerilogRequestLogging();
+app.UseExceptionHandler();
 
-// app.UseExceptionHandler();
-
-// app.UseAuthentication();
-// app.UseAuthorization(); 
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapEndpoints();
 
 app.Run();
+
+internal partial class Program;
